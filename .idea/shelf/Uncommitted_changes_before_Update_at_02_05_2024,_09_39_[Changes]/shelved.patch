@@ -1,0 +1,1085 @@
+Index: src/main/resources/app/tree/hello-view.fxml
+===================================================================
+diff --git a/src/main/resources/app/tree/hello-view.fxml b/src/main/resources/app/tree/hello-view.fxml
+deleted file mode 100644
+--- a/src/main/resources/app/tree/hello-view.fxml	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,16 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.geometry.Insets?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.VBox?>
+-
+-<?import javafx.scene.control.Button?>
+-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+-      fx:controller="app.tree.HelloController">
+-    <padding>
+-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+-    </padding>
+-
+-    <Label fx:id="welcomeText"/>
+-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+-</VBox>
+Index: src/main/java/app/tree/Node.java
+===================================================================
+diff --git a/src/main/java/app/tree/Node.java b/src/main/java/app/tree/Node.java
+deleted file mode 100644
+--- a/src/main/java/app/tree/Node.java	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,91 +0,0 @@
+-package app.tree;
+-
+-import javafx.scene.control.TextField;
+-import javafx.scene.shape.Line;
+-
+-import java.util.ArrayList;
+-import java.util.Collection;
+-import java.util.List;
+-
+-public class Node{
+-    private static Long idCounter = 0L;
+-    private Long id= idCounter++;
+-    private TextField textField;
+-
+-    public Line getLine() {
+-        return line;
+-    }
+-
+-    public void setLine(Line line) {
+-        this.line = line;
+-    }
+-
+-    private Line line;
+-
+-    private Node parent;
+-    private List<Node>children;
+-    private Integer up;
+-
+-    public Node(Integer up){
+-        this.up = up;
+-    }
+-
+-    public Node(TextField textField, Node parent, Integer up) {
+-        this.textField = textField;
+-        this.parent = parent;
+-        this.up = up;
+-        this.children=new ArrayList<>();
+-    }
+-
+-    public static Long getIdCounter() {
+-        return idCounter;
+-    }
+-
+-    public static void setIdCounter(Long idCounter) {
+-        Node.idCounter = idCounter;
+-    }
+-
+-    public List<Node> getChildren() {
+-        return children;
+-    }
+-
+-    public void setChildren(List<Node> children) {
+-        this.children = children;
+-    }
+-
+-    public Long getId() {
+-        return id;
+-    }
+-
+-    public void setId(Long id) {
+-        this.id = id;
+-    }
+-
+-    public TextField getTextField() {
+-        return textField;
+-    }
+-
+-    public void setTextField(TextField textField) {
+-        this.textField = textField;
+-    }
+-
+-    public Node getParent() {
+-        return parent;
+-    }
+-
+-    public void setParent(Node parent) {
+-        this.parent = parent;
+-    }
+-
+-    public void addChildren(Node node){
+-        children.add(node);
+-    }
+-
+-    public Integer getUp() {
+-        return up;
+-    }
+-
+-    public void setUp(Integer up) {
+-        this.up = up;
+-    }
+-}
+Index: .mvn/wrapper/maven-wrapper.properties
+===================================================================
+diff --git a/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties
+deleted file mode 100644
+--- a/.mvn/wrapper/maven-wrapper.properties	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,2 +0,0 @@
+-distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.8.5/apache-maven-3.8.5-bin.zip
+-wrapperUrl=https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.1.0/maven-wrapper-3.1.0.jar
+\ No newline at end of file
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+deleted file mode 100644
+--- a/pom.xml	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,85 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <groupId>app</groupId>
+-    <artifactId>tree</artifactId>
+-    <version>1.0-SNAPSHOT</version>
+-    <name>tree</name>
+-
+-    <properties>
+-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-        <junit.version>5.10.0</junit.version>
+-    </properties>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-controls</artifactId>
+-            <version>17.0.6</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.openjfx</groupId>
+-            <artifactId>javafx-fxml</artifactId>
+-            <version>17.0.6</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.controlsfx</groupId>
+-            <artifactId>controlsfx</artifactId>
+-            <version>11.1.2</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.kordamp.bootstrapfx</groupId>
+-            <artifactId>bootstrapfx-core</artifactId>
+-            <version>0.4.0</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-api</artifactId>
+-            <version>${junit.version}</version>
+-            <scope>test</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-engine</artifactId>
+-            <version>${junit.version}</version>
+-            <scope>test</scope>
+-        </dependency>
+-    </dependencies>
+-
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-compiler-plugin</artifactId>
+-                <version>3.11.0</version>
+-                <configuration>
+-                    <source>17</source>
+-                    <target>17</target>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+-                <groupId>org.openjfx</groupId>
+-                <artifactId>javafx-maven-plugin</artifactId>
+-                <version>0.0.8</version>
+-                <executions>
+-                    <execution>
+-                        <!-- Default configuration for running with: mvn clean javafx:run -->
+-                        <id>default-cli</id>
+-                        <configuration>
+-                            <mainClass>app.tree/app.tree.HelloApplication</mainClass>
+-                            <launcher>app</launcher>
+-                            <jlinkZipName>app</jlinkZipName>
+-                            <jlinkImageName>app</jlinkImageName>
+-                            <noManPages>true</noManPages>
+-                            <stripDebug>true</stripDebug>
+-                            <noHeaderFiles>true</noHeaderFiles>
+-                        </configuration>
+-                    </execution>
+-                </executions>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: src/main/java/module-info.java
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+deleted file mode 100644
+--- a/src/main/java/module-info.java	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,10 +0,0 @@
+-module app.tree {
+-    requires javafx.controls;
+-    requires javafx.fxml;
+-
+-    requires org.controlsfx.controls;
+-    requires org.kordamp.bootstrapfx.core;
+-
+-    opens app.tree to javafx.fxml;
+-    exports app.tree;
+-}
+\ No newline at end of file
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+deleted file mode 100644
+--- a/.gitignore	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,38 +0,0 @@
+-target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-
+-### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
+-*.iws
+-*.iml
+-*.ipr
+-
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
+-
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
+Index: src/main/java/app/tree/HelloController.java
+===================================================================
+diff --git a/src/main/java/app/tree/HelloController.java b/src/main/java/app/tree/HelloController.java
+deleted file mode 100644
+--- a/src/main/java/app/tree/HelloController.java	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,14 +0,0 @@
+-package app.tree;
+-
+-import javafx.fxml.FXML;
+-import javafx.scene.control.Label;
+-
+-public class HelloController {
+-    @FXML
+-    private Label welcomeText;
+-
+-    @FXML
+-    protected void onHelloButtonClick() {
+-        welcomeText.setText("Welcome to JavaFX Application!");
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/app/tree/App.java
+===================================================================
+diff --git a/src/main/java/app/tree/App.java b/src/main/java/app/tree/App.java
+deleted file mode 100644
+--- a/src/main/java/app/tree/App.java	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ /dev/null	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
+@@ -1,481 +0,0 @@
+-package app.tree;
+-
+-import javafx.application.Application;
+-import javafx.scene.Scene;
+-import javafx.scene.control.TextField;
+-import javafx.scene.input.KeyCode;
+-import javafx.scene.layout.Pane;
+-import javafx.scene.paint.Color;
+-import javafx.scene.shape.Line;
+-import javafx.stage.Stage;
+-
+-import java.util.ArrayList;
+-import java.util.Collections;
+-import java.util.Comparator;
+-import java.util.List;
+-import java.util.function.Predicate;
+-
+-public class App extends Application {
+-
+-    private static Node start;
+-    private static Predicate<Integer> condition1;
+-    private static Predicate<Integer> condition2;
+-    private static List<Node> allNode;
+-    private static List<Node> leavesList;
+-
+-    private static Pane root = new Pane();
+-    @Override
+-    public void start(Stage primaryStage)  {
+-
+-        // Создание узлов и листьев
+-        List<Integer> leaves = List.of(3, 4, 2, 1, 7, 6, 8, 8, 7, 3, 5, 4, 8, 9, 9, 3, 4, 7, 8, 4, 5, 8, 9, 8, 7, 9, 6, 5, 3, 0, 2, 7, 6, 8, 9, 8);
+-        leavesList = createLeaves(leaves);
+-
+-        Node nodeUp2_1 = createNode(1, 50);
+-        Node nodeUp2_2 = createNode(1,100);
+-        Node nodeUp2_3 = createNode(1,150);
+-
+-        Node nodeUp2_4 = createNode(1,350);
+-        Node nodeUp2_5 = createNode(1,400);
+-        Node nodeUp2_6 = createNode(1,450);
+-
+-        Node nodeUp2_7 = createNode(1,550);
+-        Node nodeUp2_8 = createNode(1,600);
+-
+-        Node nodeUp2_9 = createNode(1,750);
+-        Node nodeUp2_10 = createNode(1,800);
+-        Node nodeUp2_11 = createNode(1,850);
+-
+-        Node nodeUp2_12 = createNode(1,950);
+-        Node nodeUp2_13 = createNode(1,1000);
+-
+-        Node nodeUp2_14 = createNode(1,1100);
+-        Node nodeUp2_15 = createNode(1,1200);
+-
+-        Node nodeUp3_1 = createNode(2,100);
+-        Node nodeUp3_2 = createNode(2,400);
+-        Node nodeUp3_3 = createNode(2,570);
+-        Node nodeUp3_4 = createNode(2,800);
+-        Node nodeUp3_5 = createNode(2,970);
+-        Node nodeUp3_6 = createNode(2,1150);
+-
+-        Node nodeUp4_1 = createNode(3,280);
+-        Node nodeUp4_2 = createNode(3,700);
+-        Node nodeUp4_3 = createNode(3,1050);
+-
+-        Node nodeUp5_1 = createNode(4,700);
+-
+-        Node node1 = leavesList.get(0);
+-        Node node2 = leavesList.get(1);
+-        connect(nodeUp2_1,node1,root);
+-        connect(nodeUp2_1,node2,root);
+-
+-        Node node3 = leavesList.get(2);
+-        Node node4 = leavesList.get(3);
+-        connect(nodeUp2_2,node3,root);
+-        connect(nodeUp2_2,node4,root);
+-
+-        Node node5 = leavesList.get(4);
+-        Node node6 = leavesList.get(5);
+-        Node node7 = leavesList.get(6);
+-        connect(nodeUp2_3,node5,root);
+-        connect(nodeUp2_3,node6,root);
+-        connect(nodeUp2_3,node7,root);
+-////////////////////////////////////////////
+-
+-        Node node8 = leavesList.get(7);
+-        Node node9 = leavesList.get(8);
+-        connect(nodeUp2_4,node8,root);
+-        connect(nodeUp2_4,node9,root);
+-
+-        Node node10 = leavesList.get(9);
+-        Node node11 = leavesList.get(10);
+-        Node node12 = leavesList.get(11);
+-        connect(nodeUp2_5,node10,root);
+-        connect(nodeUp2_5,node11,root);
+-        connect(nodeUp2_5,node12,root);
+-
+-        Node node13 = leavesList.get(12);
+-        Node node14 = leavesList.get(13);
+-        Node node15 = leavesList.get(14);
+-        connect(nodeUp2_6,node13,root);
+-        connect(nodeUp2_6,node14,root);
+-        connect(nodeUp2_6,node15,root);
+-////////////////////////////////////////////////
+-
+-        Node node16 = leavesList.get(15);
+-        Node node17 = leavesList.get(16);
+-        connect(nodeUp2_7,node16,root);
+-        connect(nodeUp2_7,node17,root);
+-
+-        Node node18 = leavesList.get(17);
+-        Node node19 = leavesList.get(18);
+-        connect(nodeUp2_8,node18,root);
+-        connect(nodeUp2_8,node19,root);
+-
+-        /////////////////////////////////////////////////
+-        Node node20 = leavesList.get(19);
+-        Node node21 = leavesList.get(20);
+-        connect(nodeUp2_9,node20,root);
+-        connect(nodeUp2_9,node21,root);
+-
+-        Node node22 = leavesList.get(21);
+-        Node node23 = leavesList.get(22);
+-        Node node24 = leavesList.get(23);
+-        connect(nodeUp2_10,node22,root);
+-        connect(nodeUp2_10,node23,root);
+-        connect(nodeUp2_10,node24,root);
+-
+-        Node node25 = leavesList.get(24);
+-        Node node26 = leavesList.get(25);
+-        connect(nodeUp2_11,node25,root);
+-        connect(nodeUp2_11,node26,root);
+-
+-
+-/////////////////////////////////////////////////////
+-
+-        Node node27 = leavesList.get(26);
+-        Node node28 = leavesList.get(27);
+-        connect(nodeUp2_12,node27,root);
+-        connect(nodeUp2_12,node28,root);
+-
+-        Node node29 = leavesList.get(28);
+-        Node node30 = leavesList.get(29);
+-        Node node31 = leavesList.get(30);
+-        connect(nodeUp2_13,node29,root);
+-        connect(nodeUp2_13,node30,root);
+-        connect(nodeUp2_13,node31,root);
+-        //////////////////////////////////////
+-
+-        Node node32 = leavesList.get(31);
+-        Node node33 = leavesList.get(32);
+-        connect(nodeUp2_14,node32,root);
+-        connect(nodeUp2_14,node33,root);
+-
+-        Node node34 = leavesList.get(33);
+-        Node node35 = leavesList.get(34);
+-        Node node36 = leavesList.get(35);
+-        connect(nodeUp2_15,node34,root);
+-        connect(nodeUp2_15,node35,root);
+-        connect(nodeUp2_15,node36,root);
+-
+-        //.......up3
+-        connect(nodeUp3_1,nodeUp2_1,root);
+-        connect(nodeUp3_1,nodeUp2_2,root);
+-        connect(nodeUp3_1,nodeUp2_3,root);
+-
+-        connect(nodeUp3_2,nodeUp2_4,root);
+-        connect(nodeUp3_2,nodeUp2_5,root);
+-        connect(nodeUp3_2,nodeUp2_6,root);
+-//////////////////////////
+-        connect(nodeUp3_3,nodeUp2_7,root);
+-        connect(nodeUp3_3,nodeUp2_8,root);
+-
+-        connect(nodeUp3_4,nodeUp2_9,root);
+-        connect(nodeUp3_4,nodeUp2_10,root);
+-        connect(nodeUp3_4,nodeUp2_11,root);
+-///////////////////////////
+-        connect(nodeUp3_5,nodeUp2_12,root);
+-        connect(nodeUp3_5,nodeUp2_13,root);
+-
+-        connect(nodeUp3_6,nodeUp2_14,root);
+-        connect(nodeUp3_6,nodeUp2_15,root);
+-
+-//.....up4
+-        connect(nodeUp4_1,nodeUp3_1,root);
+-        connect(nodeUp4_1,nodeUp3_2,root);
+-
+-        connect(nodeUp4_2,nodeUp3_3,root);
+-        connect(nodeUp4_2,nodeUp3_4,root);
+-
+-        connect(nodeUp4_3,nodeUp3_5,root);
+-        connect(nodeUp4_3,nodeUp3_6,root);
+-
+-//....up5
+-        connect(nodeUp5_1,nodeUp4_1,root);
+-        connect(nodeUp5_1,nodeUp4_2,root);
+-        connect(nodeUp5_1,nodeUp4_3,root);
+-
+-
+-        List<Node> leavesListUp2 = List.of(nodeUp2_1,nodeUp2_2,nodeUp2_3,nodeUp2_4,nodeUp2_5,nodeUp2_6, nodeUp2_7,nodeUp2_8,nodeUp2_9,nodeUp2_10,nodeUp2_11,nodeUp2_12,nodeUp2_13,nodeUp2_14,nodeUp2_15);
+-        List<Node> leavesListUp3 = List.of(nodeUp3_1,nodeUp3_2,nodeUp3_3,nodeUp3_4,nodeUp3_5,nodeUp3_6);
+-        List<Node> leavesListUp4 = List.of(nodeUp4_1,nodeUp4_2,nodeUp4_3);
+-        List<Node> leavesListUp5 = List.of(nodeUp5_1);
+-
+-        allNode= new ArrayList<>();
+-        allNode.addAll(leavesListUp2);
+-        allNode.addAll(leavesListUp3);
+-        allNode.addAll(leavesListUp4);
+-        allNode.addAll(leavesListUp5);
+-
+-        // Добавление узлов и линий на панель
+-        root.getChildren().addAll(leavesList.stream().map(Node::getTextField).toList());
+-        root.getChildren().addAll(leavesListUp2.stream().map(Node::getTextField).toList());
+-        root.getChildren().addAll(leavesListUp3.stream().map(Node::getTextField).toList());
+-        root.getChildren().addAll(leavesListUp4.stream().map(Node::getTextField).toList());
+-        root.getChildren().addAll(leavesListUp5.stream().map(Node::getTextField).toList());
+-
+-
+-        start =node1;
+-        condition1 = n -> n % 2 == 0;
+-        condition2 = n -> n % 2 != 0;
+-
+-
+-        primaryStage.setTitle("Algoritm minMax");
+-        Scene scene = new Scene(root, 1420, 500);
+-
+-
+-        scene.setOnKeyPressed(event -> {
+-
+-            if(event.isControlDown() && event.getCode() == KeyCode.COMMA){
+-                start=node1;
+-                System.out.println("Обход слева");
+-            }
+-
+-            if(event.isControlDown()&& event.getCode() == KeyCode.PERIOD) {
+-                start = node36;
+-                System.out.println("Обход с права");
+-            }
+-
+-            if (!event.isControlDown()&& event.getCode() == KeyCode.COMMA){
+-                clearRecursive(start);
+-                minMaxRecursive(start,condition1,condition2);
+-                Node n=allNode.get(allNode.size()-1);
+-                printPath(n);
+-            }
+-
+-            if (!event.isControlDown()&& event.getCode() == KeyCode.PERIOD) {
+-                clearRecursive(start);
+-                minMaxRecursive(start, condition2, condition1);
+-                Node n=allNode.get(allNode.size()-1);
+-                printPath(n);
+-
+-            }
+-
+-            System.out.println("Клавиша нажата "+event.getCode());
+-
+-        });
+-
+-
+-        primaryStage.setScene(scene);
+-        primaryStage.show();
+-
+-    }
+-
+-    private static TextField createTextField(double x, double y) {
+-        TextField textField = new TextField();
+-        textField.setPrefWidth(25);
+-        textField.setPrefHeight(25);
+-        textField.setLayoutX(x);
+-        textField.setLayoutY(y);
+-        textField.setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;-fx-font-size: 8px;");
+-        return textField;
+-    }
+-
+-    private static Node createNode(int level, int step){
+-        int up = switch (level) {
+-            case 0 -> 450;
+-            case 1 -> 350;
+-            case 2 -> 300;
+-            case 3 -> 200;
+-            case 4 -> 100;
+-            default -> throw new RuntimeException("Не верный уровень");
+-        };
+-
+-        TextField textField = createTextField(step,up);
+-        textField.setText("null");
+-
+-        Node node =new Node(textField, null,level);
+-        node.getTextField().setOnMouseClicked(event -> {
+-            handleTextFieldClick(node);
+-        });
+-        root.setOnMouseClicked(event -> {
+-            textField.getParent().requestFocus(); // Забираем фокус с TextField
+-        });
+-    //    node.getTextField().setOnKeyPressed(event->  changeValue(node));
+-
+-        return node;
+-    }
+-
+-    private static List<Node> createLeaves(List<Integer>leaves){
+-        List<Node>leavesList=new ArrayList<>();
+-        int lenAtoB=10;
+-        for(int i=0;i<leaves.size();i++){
+-            Node node=createNode(0,lenAtoB);
+-            node.getTextField().setText(leaves.get(i).toString());
+-            leavesList.add(node);
+-            lenAtoB=lenAtoB+35;
+-        }
+-        return leavesList;
+-    }
+-
+-    private static void connect(Node parent,Node node, Pane pane,Color color){
+-        if(color==null)
+-            color=Color.BLACK;
+-
+-        Line line = new Line();
+-
+-        double centerRootX = 10+parent.getTextField().getLayoutX() + parent.getTextField().getWidth() / 2;
+-        double centerRootY = 10+parent.getTextField().getLayoutY() + parent.getTextField().getHeight() / 2;
+-        double centerX = 10+node.getTextField().getLayoutX() + node.getTextField().getWidth() / 2;
+-        double centerY = 10+node.getTextField().getLayoutY() + node.getTextField().getHeight() / 2;
+-        line.setStartX(centerX);
+-        line.setStartY(centerY);
+-        line.setEndX(centerRootX);
+-        line.setEndY(centerRootY);
+-
+-        line.setStroke(color);
+-        node.setLine(line);
+-
+-        node.setParent(parent);
+-        parent.addChildren(node);
+-        pane.getChildren().add(line);
+-    }
+-
+-    private static void connect(Node parent,Node node, Pane pane){
+-        connect(parent,node,pane,null);
+-    }
+-
+-
+-    private static List<Node>closedList=new ArrayList<>();
+-
+-    private static void minMaxRecursive(Node node, Predicate<Integer> condition1, Predicate<Integer> condition2) {
+-        if (node == null)
+-            return;
+-
+-            if (node.getParent() != null) {
+-                Node parent = node.getParent();
+-                String valueParentString = parent.getTextField().getText();
+-
+-                if (condition1.test(node.getUp())) {
+-                    Integer minValue = parentMinChildIsHigher(node);
+-                    if (!valueParentString.equals("null")) {
+-                        int valueParentInt = Integer.parseInt(valueParentString);
+-                        if (minValue != null && minValue < valueParentInt)
+-                            parent.getTextField().setText(minValue.toString());
+-                        parent.getTextField().setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: blue;-fx-font-size: 8px;");
+-                    } else if (minValue != null) {
+-                        parent.getTextField().setText(minValue.toString());
+-                        parent.getTextField().setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: blue;-fx-font-size: 8px;");
+-                    }
+-                }
+-
+-                if (condition2.test(node.getUp())) {
+-                    Integer maxValue = parentMaxChildIsHigher(node);
+-                    if (!valueParentString.equals("null")) {
+-                        int valueParentInt = Integer.parseInt(valueParentString);
+-                        if (maxValue != null && maxValue > valueParentInt) {
+-                            parent.getTextField().setText(maxValue.toString());
+-                            parent.getTextField().setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: red;-fx-font-size: 8px;");
+-                        }
+-                    } else if (maxValue != null) {
+-                        parent.getTextField().setText(maxValue.toString());
+-                        parent.getTextField().setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: red;-fx-font-size: 8px;");
+-                    }
+-                }
+-
+-            }
+-
+-
+-        // Обходим всех детей узла
+-        for (Node child : node.getChildren()) {
+-            if(!closedList.contains(child)){
+-                closedList.add(child);
+-                if(node.getParent()!=null)
+-                node.getParent().getTextField().setText("null");
+-                node.getTextField().setText("null");
+-                minMaxRecursive(child,condition1,condition2);
+-            }
+-        }
+-
+-        // После обхода всех детей двигаемся к родителю
+-        minMaxRecursive(node.getParent(),condition1,condition2);
+-    }
+-
+-
+-    private static void clearRecursive(Node node) {
+-        if (node == null) {
+-            return;
+-        }
+-        closedList.clear();
+-        leavesList.forEach(n->{
+-            if(n.getLine()!=null)
+-                n.getLine().setStroke(Color.BLACK);
+-        });
+-
+-        allNode.forEach(n->{
+-            if(n.getLine()!=null)
+-                n.getLine().setStroke(Color.BLACK);
+-        });
+-
+-        allNode.forEach(e -> {
+-            e.getTextField().setText("null");
+-            e.getTextField().setStyle("-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;-fx-font-size: 8px;");
+-        });
+-    }
+-
+-
+-private static List<Node> getListBrothers(Node node){
+-        Node parent =  node.getParent();
+-        return parent.getChildren().stream().filter(n->!n.getTextField().getText().equals("null")).toList();
+-}
+-
+-private static Comparator<Node>compareNodeByValue(){
+-        Comparator<Node> comparator = Comparator.comparingInt(n ->Integer.parseInt(n.getTextField().getText()));
+-        return comparator;
+-    }
+-
+-private static Integer parentMinChildIsHigher(Node node) {
+-    List<Node> childrensValueNotNull=getListBrothers(node);
+-    if(childrensValueNotNull.size()!=0)
+-        return Integer.parseInt(Collections.min(childrensValueNotNull, compareNodeByValue()).getTextField().getText());
+-    return null;
+-}
+-
+-    private static Integer parentMaxChildIsHigher(Node node) {
+-        List<Node> childrensValueNotNull=getListBrothers(node);
+-        if(childrensValueNotNull.size()!=0)
+-            return Integer.parseInt(Collections.max(childrensValueNotNull, compareNodeByValue()).getTextField().getText());
+-        return null;
+-    }
+-
+-
+-    private static void handleTextFieldClick(Node node) {
+-        System.out.println("Clicked on TextField with ID: " + node.getId());
+-    }
+-
+-    private static void changeValue(Node node){
+-        node.getTextField().textProperty().addListener((observable, oldValue, newValue) -> {
+-            System.out.println("Текст изменен на: " + newValue);
+-            if(!newValue.equals("")) {
+-                clearRecursive(start);
+-                minMaxRecursive(start,condition1,condition2);
+-            }
+-        });
+-
+-    }
+-
+-    private static void printPath(Node node){
+-        if (node==null)
+-            return;
+-
+-        Node current = null;
+-        List<Node>c=node.getChildren();
+-
+-        if (condition1.test(node.getUp()))
+-            current = Collections.min(c, compareNodeByValue());
+-
+-
+-        if(condition2.test(node.getUp()))
+-            current = Collections.max(c, compareNodeByValue());
+-
+-
+-        current.getLine().setStroke(Color.ORANGE);
+-        printPath(current);
+-
+-    }
+-
+-    public static void main(String[] args) {
+-        launch();
+-    }
+-}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"0c83d5e4-d2de-43a6-bd0b-6a7e586681ff\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/mvnw\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/mvnw.cmd\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/App.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/HelloController.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/Node.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/app/tree/hello-view.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2fHFqhV7lotmJpIrvIReMw2AihY\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/neket/IdeaProjects/tree&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Application.App\">\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.App\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.HelloApplication\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.Main\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.App\" />\n        <item itemvalue=\"Application.HelloApplication\" />\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"jdk-17.0.10-corretto-17.0.10-4caba194b151-25a4bffe\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"0c83d5e4-d2de-43a6-bd0b-6a7e586681ff\" name=\"Changes\" comment=\"\" />\n      <created>1713450293229</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1713450293229</updated>\n      <workItem from=\"1713450294287\" duration=\"1881000\" />\n      <workItem from=\"1713474167451\" duration=\"779000\" />\n      <workItem from=\"1713476938988\" duration=\"2037000\" />\n      <workItem from=\"1713517202606\" duration=\"4754000\" />\n      <workItem from=\"1713522878147\" duration=\"2682000\" />\n      <workItem from=\"1713525619447\" duration=\"2339000\" />\n      <workItem from=\"1713528249352\" duration=\"188000\" />\n      <workItem from=\"1713528609588\" duration=\"65000\" />\n      <workItem from=\"1713529917714\" duration=\"558000\" />\n      <workItem from=\"1713530776721\" duration=\"452000\" />\n      <workItem from=\"1713532236072\" duration=\"745000\" />\n      <workItem from=\"1713533110784\" duration=\"2487000\" />\n      <workItem from=\"1713535890034\" duration=\"1855000\" />\n      <workItem from=\"1713537930324\" duration=\"513000\" />\n      <workItem from=\"1713684287650\" duration=\"887000\" />\n      <workItem from=\"1713686144901\" duration=\"10650000\" />\n      <workItem from=\"1713697862601\" duration=\"3696000\" />\n      <workItem from=\"1713705095935\" duration=\"4071000\" />\n      <workItem from=\"1713710614322\" duration=\"362000\" />\n      <workItem from=\"1713710990274\" duration=\"1008000\" />\n      <workItem from=\"1713723900991\" duration=\"3000\" />\n      <workItem from=\"1713724001341\" duration=\"6000\" />\n      <workItem from=\"1713724524851\" duration=\"3000\" />\n      <workItem from=\"1713724570016\" duration=\"15000\" />\n      <workItem from=\"1713780160283\" duration=\"10571000\" />\n      <workItem from=\"1713802512651\" duration=\"1168000\" />\n      <workItem from=\"1713803695299\" duration=\"767000\" />\n      <workItem from=\"1713804759023\" duration=\"3228000\" />\n      <workItem from=\"1713808085892\" duration=\"844000\" />\n      <workItem from=\"1713809049735\" duration=\"2055000\" />\n      <workItem from=\"1713811119199\" duration=\"1469000\" />\n      <workItem from=\"1713812632524\" duration=\"3526000\" />\n      <workItem from=\"1713819475802\" duration=\"323000\" />\n      <workItem from=\"1713820028129\" duration=\"2934000\" />\n      <workItem from=\"1714149036104\" duration=\"2747000\" />\n      <workItem from=\"1714151873745\" duration=\"553000\" />\n      <workItem from=\"1714152453471\" duration=\"179000\" />\n      <workItem from=\"1714152843420\" duration=\"491000\" />\n      <workItem from=\"1714153360791\" duration=\"527000\" />\n      <workItem from=\"1714153920282\" duration=\"4292000\" />\n      <workItem from=\"1714160651607\" duration=\"639000\" />\n      <workItem from=\"1714161375111\" duration=\"5273000\" />\n      <workItem from=\"1714205869485\" duration=\"3308000\" />\n      <workItem from=\"1714209408085\" duration=\"156000\" />\n      <workItem from=\"1714209590159\" duration=\"815000\" />\n      <workItem from=\"1714210491592\" duration=\"82000\" />\n      <workItem from=\"1714210707230\" duration=\"1398000\" />\n      <workItem from=\"1714212199613\" duration=\"2309000\" />\n      <workItem from=\"1714214691059\" duration=\"1587000\" />\n      <workItem from=\"1714216385022\" duration=\"280000\" />\n      <workItem from=\"1714216704091\" duration=\"2056000\" />\n      <workItem from=\"1714218833781\" duration=\"1412000\" />\n      <workItem from=\"1714228258142\" duration=\"5000\" />\n      <workItem from=\"1714228314359\" duration=\"956000\" />\n      <workItem from=\"1714398868659\" duration=\"1658000\" />\n      <workItem from=\"1714467850014\" duration=\"14000\" />\n      <workItem from=\"1714543245848\" duration=\"3300000\" />\n      <workItem from=\"1714546722125\" duration=\"825000\" />\n      <workItem from=\"1714547621708\" duration=\"2495000\" />\n      <workItem from=\"1714550186527\" duration=\"1889000\" />\n      <workItem from=\"1714552178293\" duration=\"269000\" />\n      <workItem from=\"1714552664345\" duration=\"214000\" />\n      <workItem from=\"1714553200840\" duration=\"2703000\" />\n      <workItem from=\"1714572640878\" duration=\"67000\" />\n      <workItem from=\"1714628917659\" duration=\"680000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>\n          <line>347</line>\n          <option name=\"timeStamp\" value=\"6\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>\n          <line>461</line>\n          <option name=\"timeStamp\" value=\"9\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n    <pin-to-top-manager>\n      <pinned-members>\n        <PinnedItemInfo parentTag=\"javafx.scene.control.TextField\" memberName=\"text\" />\n      </pinned-members>\n    </pin-to-top-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ b/.idea/workspace.xml	(date 1714631839815)
+@@ -4,231 +4,20 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0c83d5e4-d2de-43a6-bd0b-6a7e586681ff" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/App.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/HelloController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/Node.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/tree/hello-view.fxml" afterDir="false" />
+-    </list>
++    <list default="true" id="d85c0cab-61b1-48ac-ad57-fe7c4430d1f1" name="Changes" comment="minMaxProcedure" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="Git.Settings">
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="MavenImportPreferences">
+-    <option name="generalSettings">
+-      <MavenGeneralSettings>
+-        <option name="mavenHome" value="Use Maven wrapper" />
+-      </MavenGeneralSettings>
+-    </option>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
+   </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 2
+-}</component>
+-  <component name="ProjectId" id="2fHFqhV7lotmJpIrvIReMw2AihY" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/neket/IdeaProjects/tree&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-  }
+-}</component>
+-  <component name="RunManager" selected="Application.App">
+-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="app.tree.App" />
+-      <module name="tree" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="app.tree.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="app.tree.HelloApplication" />
+-      <module name="tree" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="app.tree.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="app.tree.Main" />
+-      <module name="tree" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="app.tree.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="Application.App" />
+-        <item itemvalue="Application.HelloApplication" />
+-        <item itemvalue="Application.Main" />
+-      </list>
+-    </recent_temporary>
+-  </component>
+-  <component name="SharedIndexes">
+-    <attachedChunks>
+-      <set>
+-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-25a4bffe" />
+-      </set>
+-    </attachedChunks>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="0c83d5e4-d2de-43a6-bd0b-6a7e586681ff" name="Changes" comment="" />
+-      <created>1713450293229</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1713450293229</updated>
+-      <workItem from="1713450294287" duration="1881000" />
+-      <workItem from="1713474167451" duration="779000" />
+-      <workItem from="1713476938988" duration="2037000" />
+-      <workItem from="1713517202606" duration="4754000" />
+-      <workItem from="1713522878147" duration="2682000" />
+-      <workItem from="1713525619447" duration="2339000" />
+-      <workItem from="1713528249352" duration="188000" />
+-      <workItem from="1713528609588" duration="65000" />
+-      <workItem from="1713529917714" duration="558000" />
+-      <workItem from="1713530776721" duration="452000" />
+-      <workItem from="1713532236072" duration="745000" />
+-      <workItem from="1713533110784" duration="2487000" />
+-      <workItem from="1713535890034" duration="1855000" />
+-      <workItem from="1713537930324" duration="513000" />
+-      <workItem from="1713684287650" duration="887000" />
+-      <workItem from="1713686144901" duration="10650000" />
+-      <workItem from="1713697862601" duration="3696000" />
+-      <workItem from="1713705095935" duration="4071000" />
+-      <workItem from="1713710614322" duration="362000" />
+-      <workItem from="1713710990274" duration="1008000" />
+-      <workItem from="1713723900991" duration="3000" />
+-      <workItem from="1713724001341" duration="6000" />
+-      <workItem from="1713724524851" duration="3000" />
+-      <workItem from="1713724570016" duration="15000" />
+-      <workItem from="1713780160283" duration="10571000" />
+-      <workItem from="1713802512651" duration="1168000" />
+-      <workItem from="1713803695299" duration="767000" />
+-      <workItem from="1713804759023" duration="3228000" />
+-      <workItem from="1713808085892" duration="844000" />
+-      <workItem from="1713809049735" duration="2055000" />
+-      <workItem from="1713811119199" duration="1469000" />
+-      <workItem from="1713812632524" duration="3526000" />
+-      <workItem from="1713819475802" duration="323000" />
+-      <workItem from="1713820028129" duration="2934000" />
+-      <workItem from="1714149036104" duration="2747000" />
+-      <workItem from="1714151873745" duration="553000" />
+-      <workItem from="1714152453471" duration="179000" />
+-      <workItem from="1714152843420" duration="491000" />
+-      <workItem from="1714153360791" duration="527000" />
+-      <workItem from="1714153920282" duration="4292000" />
+-      <workItem from="1714160651607" duration="639000" />
+-      <workItem from="1714161375111" duration="5273000" />
+-      <workItem from="1714205869485" duration="3308000" />
+-      <workItem from="1714209408085" duration="156000" />
+-      <workItem from="1714209590159" duration="815000" />
+-      <workItem from="1714210491592" duration="82000" />
+-      <workItem from="1714210707230" duration="1398000" />
+-      <workItem from="1714212199613" duration="2309000" />
+-      <workItem from="1714214691059" duration="1587000" />
+-      <workItem from="1714216385022" duration="280000" />
+-      <workItem from="1714216704091" duration="2056000" />
+-      <workItem from="1714218833781" duration="1412000" />
+-      <workItem from="1714228258142" duration="5000" />
+-      <workItem from="1714228314359" duration="956000" />
+-      <workItem from="1714398868659" duration="1658000" />
+-      <workItem from="1714467850014" duration="14000" />
+-      <workItem from="1714543245848" duration="3300000" />
+-      <workItem from="1714546722125" duration="825000" />
+-      <workItem from="1714547621708" duration="2495000" />
+-      <workItem from="1714550186527" duration="1889000" />
+-      <workItem from="1714552178293" duration="269000" />
+-      <workItem from="1714552664345" duration="214000" />
+-      <workItem from="1714553200840" duration="2703000" />
+-      <workItem from="1714572640878" duration="67000" />
+-      <workItem from="1714628917659" duration="680000" />
+-    </task>
+     <servers />
+   </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+   <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>
+-          <line>347</line>
+-          <option name="timeStamp" value="6" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>
+-          <line>461</line>
+-          <option name="timeStamp" value="9" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+     <pin-to-top-manager>
+       <pinned-members>
+         <PinnedItemInfo parentTag="javafx.scene.control.TextField" memberName="text" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"corretto-17\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision cf5c9818d28f9aac324e828d68dc7a56d9a512e5)
++++ b/.idea/misc.xml	(date 1714631839825)
+@@ -1,14 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" default="true">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -1,0 +1,96 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"0c83d5e4-d2de-43a6-bd0b-6a7e586681ff\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/mvnw\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/mvnw.cmd\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/App.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/HelloController.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/app/tree/Node.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/app/tree/hello-view.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 2\n}</component>\n  <component name=\"ProjectId\" id=\"2fHFqhV7lotmJpIrvIReMw2AihY\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Application.App.executor&quot;: &quot;Run&quot;,\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/neket/IdeaProjects/tree&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RunManager\" selected=\"Application.App\">\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.App\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.HelloApplication\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.tree.Main\" />\n      <module name=\"tree\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"app.tree.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.App\" />\n        <item itemvalue=\"Application.HelloApplication\" />\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"jdk-17.0.10-corretto-17.0.10-4caba194b151-25a4bffe\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"0c83d5e4-d2de-43a6-bd0b-6a7e586681ff\" name=\"Changes\" comment=\"\" />\n      <created>1713450293229</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1713450293229</updated>\n      <workItem from=\"1713450294287\" duration=\"1881000\" />\n      <workItem from=\"1713474167451\" duration=\"779000\" />\n      <workItem from=\"1713476938988\" duration=\"2037000\" />\n      <workItem from=\"1713517202606\" duration=\"4754000\" />\n      <workItem from=\"1713522878147\" duration=\"2682000\" />\n      <workItem from=\"1713525619447\" duration=\"2339000\" />\n      <workItem from=\"1713528249352\" duration=\"188000\" />\n      <workItem from=\"1713528609588\" duration=\"65000\" />\n      <workItem from=\"1713529917714\" duration=\"558000\" />\n      <workItem from=\"1713530776721\" duration=\"452000\" />\n      <workItem from=\"1713532236072\" duration=\"745000\" />\n      <workItem from=\"1713533110784\" duration=\"2487000\" />\n      <workItem from=\"1713535890034\" duration=\"1855000\" />\n      <workItem from=\"1713537930324\" duration=\"513000\" />\n      <workItem from=\"1713684287650\" duration=\"887000\" />\n      <workItem from=\"1713686144901\" duration=\"10650000\" />\n      <workItem from=\"1713697862601\" duration=\"3696000\" />\n      <workItem from=\"1713705095935\" duration=\"4071000\" />\n      <workItem from=\"1713710614322\" duration=\"362000\" />\n      <workItem from=\"1713710990274\" duration=\"1008000\" />\n      <workItem from=\"1713723900991\" duration=\"3000\" />\n      <workItem from=\"1713724001341\" duration=\"6000\" />\n      <workItem from=\"1713724524851\" duration=\"3000\" />\n      <workItem from=\"1713724570016\" duration=\"15000\" />\n      <workItem from=\"1713780160283\" duration=\"10571000\" />\n      <workItem from=\"1713802512651\" duration=\"1168000\" />\n      <workItem from=\"1713803695299\" duration=\"767000\" />\n      <workItem from=\"1713804759023\" duration=\"3228000\" />\n      <workItem from=\"1713808085892\" duration=\"844000\" />\n      <workItem from=\"1713809049735\" duration=\"2055000\" />\n      <workItem from=\"1713811119199\" duration=\"1469000\" />\n      <workItem from=\"1713812632524\" duration=\"3526000\" />\n      <workItem from=\"1713819475802\" duration=\"323000\" />\n      <workItem from=\"1713820028129\" duration=\"2934000\" />\n      <workItem from=\"1714149036104\" duration=\"2747000\" />\n      <workItem from=\"1714151873745\" duration=\"553000\" />\n      <workItem from=\"1714152453471\" duration=\"179000\" />\n      <workItem from=\"1714152843420\" duration=\"491000\" />\n      <workItem from=\"1714153360791\" duration=\"527000\" />\n      <workItem from=\"1714153920282\" duration=\"4292000\" />\n      <workItem from=\"1714160651607\" duration=\"639000\" />\n      <workItem from=\"1714161375111\" duration=\"5273000\" />\n      <workItem from=\"1714205869485\" duration=\"3308000\" />\n      <workItem from=\"1714209408085\" duration=\"156000\" />\n      <workItem from=\"1714209590159\" duration=\"815000\" />\n      <workItem from=\"1714210491592\" duration=\"82000\" />\n      <workItem from=\"1714210707230\" duration=\"1398000\" />\n      <workItem from=\"1714212199613\" duration=\"2309000\" />\n      <workItem from=\"1714214691059\" duration=\"1587000\" />\n      <workItem from=\"1714216385022\" duration=\"280000\" />\n      <workItem from=\"1714216704091\" duration=\"2056000\" />\n      <workItem from=\"1714218833781\" duration=\"1412000\" />\n      <workItem from=\"1714228258142\" duration=\"5000\" />\n      <workItem from=\"1714228314359\" duration=\"956000\" />\n      <workItem from=\"1714398868659\" duration=\"1658000\" />\n      <workItem from=\"1714467850014\" duration=\"14000\" />\n      <workItem from=\"1714543245848\" duration=\"3300000\" />\n      <workItem from=\"1714546722125\" duration=\"825000\" />\n      <workItem from=\"1714547621708\" duration=\"2495000\" />\n      <workItem from=\"1714550186527\" duration=\"1889000\" />\n      <workItem from=\"1714552178293\" duration=\"269000\" />\n      <workItem from=\"1714552664345\" duration=\"214000\" />\n      <workItem from=\"1714553200840\" duration=\"2703000\" />\n      <workItem from=\"1714572640878\" duration=\"67000\" />\n      <workItem from=\"1714628917659\" duration=\"680000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>\n          <line>347</line>\n          <option name=\"timeStamp\" value=\"6\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/app/tree/App.java</url>\n          <line>461</line>\n          <option name=\"timeStamp\" value=\"9\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n    <pin-to-top-manager>\n      <pinned-members>\n        <PinnedItemInfo parentTag=\"javafx.scene.control.TextField\" memberName=\"text\" />\n      </pinned-members>\n    </pin-to-top-manager>\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,22 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0c83d5e4-d2de-43a6-bd0b-6a7e586681ff" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/App.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/HelloController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/app/tree/Node.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/tree/hello-view.fxml" afterDir="false" />
+-    </list>
++    <list default="true" id="0c83d5e4-d2de-43a6-bd0b-6a7e586681ff" name="Changes" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -51,24 +36,25 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/neket/IdeaProjects/tree&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.App.executor": "Run",
++    "Application.HelloApplication.executor": "Run",
++    "Application.Main.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "main",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "/home/neket/IdeaProjects/tree",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RunManager" selected="Application.App">
+     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="app.tree.App" />
+@@ -208,7 +194,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
